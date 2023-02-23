@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white shadow rounded-xl">
+  <div class="bg-white shadow rounded-xl hover:scale-105 transition-all">
     <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
       <img
         :src="meal.strMealThumb"
@@ -8,10 +8,7 @@
     /></router-link>
     <h3 class="p-3 font-bold">{{ meal.strMeal }}</h3>
     <p class="mb-4">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
-      repellat blanditiis beatae iusto nam ea, porro assumenda rerum, reiciendis
-      voluptatibus placeat deleniti eos a quo molestias? Rerum labore molestiae
-      voluptas.
+      {{ $filters.truncateWords(meal.strInstructions, 20) }}
     </p>
     <source-buttons :href="meal.strYoutube" :source="meal.strSource" />
   </div>
